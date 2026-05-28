@@ -12,13 +12,13 @@ const HomeSlider = () => {
     const token = localStorage.getItem('token')
 
     useEffect(() => {
-        fetch('${API_BASE_URL}/products/')
+        fetch(`${API_BASE_URL}/products/`)
             .then(r => r.json())
             .then(data => {
                 const filtered = data.filter(p => p.categories?.includes('slider'))
                 const formatted = filtered.map(p => ({
                     id: p.id,
-                    image: p.image,
+                    image_url: p.image_url,
                     title: p.name,
                     isHit: p.is_hit || false
                 }))
@@ -107,10 +107,12 @@ const HomeSlider = () => {
                                 >
                                     <div className="w-full h-full bg-white rounded-[30px] lg:rounded-[40px] overflow-hidden">
                                         <div className="p-6 pb-0 h-[70%] lg:h-[75%] flex items-center justify-center bg-gradient-to-b from-[#f5f0ee] to-white">
-                                            <img src={slide.image_url || `https://res.cloudinary.com/dn3ku8mvi/${slide.image}`} 
-                                            loading="lazy" 
-                                            alt={slide.title} 
-                                            className="w-full h-full object-contain hover:scale-110 transition duration-500" />
+                                            <img 
+                                                src={slide.image_url} 
+                                                loading="lazy" 
+                                                alt={slide.title} 
+                                                className="w-full h-full object-contain hover:scale-110 transition duration-500" 
+                                            />
                                         </div>
                                         
                                         {slide.isHit && (

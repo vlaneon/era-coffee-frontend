@@ -143,7 +143,7 @@ const MenuSection = ({ category, title, bgImage, splashImage, cols = 3, onAddToC
                             <div className="flex flex-col h-full">
                                 <div className="mb-4 rounded-[20px] p-4 flex items-center justify-center h-[60%] relative">
                                     <img
-                                        src={`http://127.0.0.1:8000${product.image_url}`}
+                                        src={product.image_url}
                                         loading="lazy"
                                         alt={product.name}
                                         className="w-[100%] h-[100%] object-cover rounded-[20%]"
@@ -175,7 +175,7 @@ const MenuSection = ({ category, title, bgImage, splashImage, cols = 3, onAddToC
                                 <div className="flex h-full">
                                     <div className="w-1/2 mr-4 flex items-center relative">
                                         <img
-                                            src={`http://127.0.0.1:8000${product.image_url}`}
+                                            src={product.image_url}
                                             loading="lazy"
                                             alt={product.name}
                                             className="w-[80%] h-auto object-contain rounded-[20%]"
@@ -201,7 +201,7 @@ const MenuSection = ({ category, title, bgImage, splashImage, cols = 3, onAddToC
                                 <div className="flex flex-col h-full">
                                     <div className="mb-4 rounded-[20px] p-4 flex items-center justify-center h-[60%] relative">
                                         <img
-                                            src={`http://127.0.0.1:8000${product.image_url}`}
+                                            src={product.image_url}
                                             loading="lazy"
                                             alt={product.name}
                                             className="w-[100%] h-[100%] object-cover rounded-[20%]"

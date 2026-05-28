@@ -14,10 +14,9 @@ const CartDrawer = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
     const totalItems = cart?.reduce((sum, item) => sum + (Number(item.quantity) || 1), 0) || 0
 
     const getImageUrl = (item) => {
-        const image = item.product?.image || item.image || ''
+        const image = item.product?.image_url || item.image_url || ''
         if (!image) return '/placeholder.png'
-        if (image.startsWith('http')) return image
-        return `http://127.0.0.1:8000${image}`
+        return image
     }
 
     return (

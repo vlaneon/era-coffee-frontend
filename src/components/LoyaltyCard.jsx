@@ -7,7 +7,7 @@ const LoyaltyCard = () => {
 
     useEffect(() => {
         if (!token) return
-        fetch('${API_BASE_URL}/loyalty/', {
+        fetch(`${API_BASE_URL}/loyalty/`, { 
             headers: { 'Authorization': `Token ${token}` }
         })
         .then(r => r.json())

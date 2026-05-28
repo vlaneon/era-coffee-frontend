@@ -107,7 +107,10 @@ const HomeSlider = () => {
                                 >
                                     <div className="w-full h-full bg-white rounded-[30px] lg:rounded-[40px] overflow-hidden">
                                         <div className="p-6 pb-0 h-[70%] lg:h-[75%] flex items-center justify-center bg-gradient-to-b from-[#f5f0ee] to-white">
-                                            <img src={`http://127.0.0.1:8000${slide.image}`} loading="lazy" alt={slide.title} className="w-full h-full object-contain hover:scale-110 transition duration-500" />
+                                            <img src={slide.image_url || `https://res.cloudinary.com/dn3ku8mvi/${slide.image}`} 
+                                            loading="lazy" 
+                                            alt={slide.title} 
+                                            className="w-full h-full object-contain hover:scale-110 transition duration-500" />
                                         </div>
                                         
                                         {slide.isHit && (

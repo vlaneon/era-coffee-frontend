@@ -143,7 +143,7 @@ const MenuSection = ({ category, title, bgImage, splashImage, cols = 3, onAddToC
                             <div className="flex flex-col h-full">
                                 <div className="mb-4 rounded-[20px] p-4 flex items-center justify-center h-[60%] relative">
                                     <img
-                                        src={`http://127.0.0.1:8000${product.image}`}
+                                        src={`http://127.0.0.1:8000${product.image_url}`}
                                         loading="lazy"
                                         alt={product.name}
                                         className="w-[100%] h-[100%] object-cover rounded-[20%]"
@@ -175,7 +175,7 @@ const MenuSection = ({ category, title, bgImage, splashImage, cols = 3, onAddToC
                                 <div className="flex h-full">
                                     <div className="w-1/2 mr-4 flex items-center relative">
                                         <img
-                                            src={`http://127.0.0.1:8000${product.image}`}
+                                            src={`http://127.0.0.1:8000${product.image_url}`}
                                             loading="lazy"
                                             alt={product.name}
                                             className="w-[80%] h-auto object-contain rounded-[20%]"
@@ -201,7 +201,7 @@ const MenuSection = ({ category, title, bgImage, splashImage, cols = 3, onAddToC
                                 <div className="flex flex-col h-full">
                                     <div className="mb-4 rounded-[20px] p-4 flex items-center justify-center h-[60%] relative">
                                         <img
-                                            src={`http://127.0.0.1:8000${product.image}`}
+                                            src={`http://127.0.0.1:8000${product.image_url}`}
                                             loading="lazy"
                                             alt={product.name}
                                             className="w-[100%] h-[100%] object-cover rounded-[20%]"
@@ -244,7 +244,7 @@ const MenuSection = ({ category, title, bgImage, splashImage, cols = 3, onAddToC
 
                         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-4 sm:mb-6">
                             <div className="w-full sm:w-1/2 bg-[#f5f0ee] rounded-[20px] p-4 flex items-center justify-center">
-                                <img src={`http://127.0.0.1:8000${selectedProduct.image}`} loading="lazy" alt={selectedProduct.name} className="w-full h-48 sm:h-96 object-cover" />
+                                <img src={selectedProduct.image_url} loading="lazy" alt={selectedProduct.name} className="w-full h-48 sm:h-96 object-cover" />
                             </div>
                             <div className="w-full sm:w-1/2">
                                 <h3 className="text-2xl lg:text-4xl sm:text-7xl font-bold text-[#735751] mb-2">{selectedProduct.name}</h3>

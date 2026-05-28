@@ -4,10 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Header from './Header'
 import LoyaltyCard from './LoyaltyCard'
 import overlayImg from '../img/overlay.svg'
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async'
+import { API_BASE_URL } from '../config'   // ← импортируем базовый URL
 
 const Profile = () => {
     const navigate = useNavigate()
+    const location = useLocation()
     const [userData, setUserData] = useState(null)
     const [cartItems, setCartItems] = useState([])
     const [orders, setOrders] = useState([])
@@ -113,6 +115,20 @@ const Profile = () => {
     if (soupDiscount > 0) activeDiscounts.push(`🍜 Комбо Обед: −${soupDiscount} ₽`)
     if (promoDiscount > 0) activeDiscounts.push(`🎫 Промокод ${promo}: −${Math.round(promoDiscount)} ₽`)
 
+    // ---------- универсальная функция для запросов с токеном ----------
+    const authFetch = async (endpoint, options = {}) => {
+        const url = `${API_BASE_URL}${endpoint}`
+        const response = await fetch(url, {
+            ...options,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`,
+                ...options.headers,
+            },
+        })
+        return response
+    }
+
     // ---------- запросы к API ----------
     useEffect(() => {
         if (!token) { navigate('/login'); return }
@@ -122,7 +138,6 @@ const Profile = () => {
         fetchLoyalty()
     }, [token])
 
-    const location = useLocation()
     useEffect(() => {
         if (!token) { navigate('/login'); return }
         if (location.state?.tab) setActiveTab(location.state.tab)
@@ -130,65 +145,63 @@ const Profile = () => {
         fetchCart()
         fetchOrders()
         fetchLoyalty()
-    }, [token])
+    }, [token, location])
 
     const fetchProfile = async () => {
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/profile/', {
-                headers: { 'Authorization': `Token ${token}` }
-            })
-            if (r.ok) setUserData(await r.json())
-        } catch (err) {}
+            const r = await authFetch('/profile/')
+            if (r.ok) {
+                const data = await r.json()
+                setUserData(data)
+                setEditData({
+                    first_name: data.first_name || '',
+                    username: data.username || '',
+                    email: data.email || '',
+                    phone: data.phone || '',
+                    address: data.address || ''
+                })
+            }
+        } catch (err) { console.error(err) }
     }
 
     const fetchCart = async () => {
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/cart/', {
-                headers: { 'Authorization': `Token ${token}` }
-            })
+            const r = await authFetch('/cart/')
             if (r.ok) setCartItems(await r.json())
-        } catch (err) {}
+        } catch (err) { console.error(err) }
         finally { setIsLoading(false) }
     }
 
     const fetchOrders = async () => {
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/orders/history/', {
-                headers: { 'Authorization': `Token ${token}` }
-            })
+            const r = await authFetch('/orders/history/')
             if (r.ok) setOrders(await r.json())
-        } catch (err) {}
+        } catch (err) { console.error(err) }
     }
 
     const fetchLoyalty = async () => {
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/loyalty/', {
-                headers: { 'Authorization': `Token ${token}` }
-            })
+            const r = await authFetch('/loyalty/')
             if (r.ok) setLoyaltyCard(await r.json())
-        } catch (err) {}
+        } catch (err) { console.error(err) }
     }
 
     const updateCartItem = async (itemId, quantity) => {
         try {
-            await fetch(`http://127.0.0.1:8000/api/cart/${itemId}/`, {
+            await authFetch(`/cart/${itemId}/`, {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` },
                 body: JSON.stringify({ quantity })
             })
             fetchCart()
-        } catch (err) {}
+        } catch (err) { console.error(err) }
     }
 
     const removeFromCart = async (itemId) => {
         try {
-            await fetch(`http://127.0.0.1:8000/api/cart/${itemId}/`, {
-                method: 'DELETE',
-                headers: { 'Authorization': `Token ${token}` }
-            })
+            await authFetch(`/cart/${itemId}/`, { method: 'DELETE' })
             fetchCart()
             setFreeItems(prev => prev.filter(f => f.itemId !== itemId))
-        } catch (err) {}
+        } catch (err) { console.error(err) }
     }
 
     const toggleFreeItem = (itemId) => {
@@ -205,9 +218,8 @@ const Profile = () => {
             return
         }
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/orders/create/', {
+            const r = await authFetch('/orders/create/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` },
                 body: JSON.stringify({
                     address: selectedAddress,
                     payment: selectedPayment,
@@ -224,18 +236,17 @@ const Profile = () => {
                 fetchOrders()
                 fetchLoyalty()
             } else {
-                alert(data.error)
+                alert(data.error || 'Ошибка при создании заказа')
             }
         } catch (err) {
-            alert('Ошибка')
+            alert('Ошибка соединения')
         }
     }
 
     const saveProfile = async () => {
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/profile/', {
+            const r = await authFetch('/profile/', {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` },
                 body: JSON.stringify(editData)
             })
             if (r.ok) {
@@ -247,7 +258,7 @@ const Profile = () => {
                 alert('Ошибка сохранения')
             }
         } catch (err) {
-            alert('Ошибка')
+            alert('Ошибка соединения')
         }
     }
 
@@ -257,9 +268,8 @@ const Profile = () => {
             return
         }
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/profile/change-password/', {
+            const r = await authFetch('/profile/change-password/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` },
                 body: JSON.stringify(passwordData)
             })
             if (r.ok) {
@@ -431,7 +441,7 @@ const Profile = () => {
                             </motion.div>
                         )}
 
-                        {/* ---------- Корзина ---------- */}
+                        {/* ---------- Корзиना ---------- */}
                         {activeTab === 'cart' && (
                             <motion.div
                                 key="cart"

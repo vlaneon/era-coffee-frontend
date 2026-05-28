@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { API_BASE_URL } from '../config';
 
 const ADDON_OPTIONS = {
     'Молоко': ['без молока', 'коровье', 'миндальное', 'овсяное'],
@@ -19,7 +20,7 @@ const MenuSection = ({ category, title, bgImage, splashImage, cols = 3, onAddToC
             setProducts(JSON.parse(cached))
             return
         }
-        fetch('http://127.0.0.1:8000/api/products/')
+        fetch(`${API_BASE_URL}/products/`)
             .then(r => r.json())
             .then(data => {
                 const filtered = data.filter(p => p.categories?.includes(category))

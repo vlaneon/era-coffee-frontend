@@ -4,6 +4,7 @@ import Header from './Header'
 import Footer from './Footer'
 import CartDrawer from './CartDrawer'
 import MenuSection from './MenuSection'
+import { API_BASE_URL } from '../config'   // ← импорт базового URL
 
 import menuBg from '../img/меню.webp'
 import aboutBg from '../img/overlay.svg'
@@ -39,7 +40,7 @@ const Menu = () => {
     // Загрузка корзины если авторизован
     useEffect(() => {
         if (token) {
-            fetch('http://127.0.0.1:8000/api/cart/', {
+            fetch(`${API_BASE_URL}/cart/`, {
                 headers: { 'Authorization': `Token ${token}` }
             })
                 .then(r => r.json())
@@ -63,7 +64,7 @@ const Menu = () => {
             }
         }
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/cart/', {
+            const response = await fetch(`${API_BASE_URL}/cart/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +77,7 @@ const Menu = () => {
                 })
             })
             if (response.ok) {
-                const updatedCart = await fetch('http://127.0.0.1:8000/api/cart/', {
+                const updatedCart = await fetch(`${API_BASE_URL}/cart/`, {
                     headers: { 'Authorization': `Token ${token}` }
                 }).then(r => r.json())
                 setCart(updatedCart)
@@ -91,7 +92,7 @@ const Menu = () => {
     }
 
     const removeFromCart = (item) => {
-        fetch(`http://127.0.0.1:8000/api/cart/${item.id}/`, {
+        fetch(`${API_BASE_URL}/cart/${item.id}/`, {
             method: 'DELETE',
             headers: { 'Authorization': `Token ${token}` }
         }).then(() => {
@@ -103,7 +104,7 @@ const Menu = () => {
         if (newQuantity <= 0) {
             removeFromCart(item)
         } else {
-            fetch(`http://127.0.0.1:8000/api/cart/${item.id}/`, {
+            fetch(`${API_BASE_URL}/cart/${item.id}/`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` },
                 body: JSON.stringify({ quantity: newQuantity })

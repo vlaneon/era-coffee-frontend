@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Eralogo from '../img/ERAlogo.webp'
 import { Helmet } from 'react-helmet-async';
+import { API_BASE_URL } from '../config';
 
 const ForgotPassword = () => {
     const navigate = useNavigate()
@@ -16,7 +17,7 @@ const ForgotPassword = () => {
         setError('')
         setMessage('')
         try {
-            const r = await fetch('http://127.0.0.1:8000/api/password-reset/', {
+            const r = await fetch('${API_BASE_URL}/password-reset/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })

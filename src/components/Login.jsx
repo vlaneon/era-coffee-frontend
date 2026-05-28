@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Eralogo from '../img/ERAlogo.webp'
 import overlayImg from '../img/overlay.svg'
 import { Helmet } from 'react-helmet-async';
+import { API_BASE_URL } from '../config';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -21,7 +22,7 @@ const Login = () => {
         setIsLoading(true)
         setError('')
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/login/', {
+            const response = await fetch('${API_BASE_URL}/login/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

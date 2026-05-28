@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SliderBg from '../img/sliderbg.svg'
+import { API_BASE_URL } from '../config';
 
 const HomeSlider = () => {
     const navigate = useNavigate()
@@ -11,7 +12,7 @@ const HomeSlider = () => {
     const token = localStorage.getItem('token')
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/products/')
+        fetch('${API_BASE_URL}/products/')
             .then(r => r.json())
             .then(data => {
                 const filtered = data.filter(p => p.categories?.includes('slider'))

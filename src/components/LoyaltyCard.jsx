@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { API_BASE_URL } from '../config'
 
 const LoyaltyCard = () => {
     const [card, setCard] = useState(null)
@@ -6,7 +7,7 @@ const LoyaltyCard = () => {
 
     useEffect(() => {
         if (!token) return
-        fetch('http://127.0.0.1:8000/api/loyalty/', {
+        fetch('${API_BASE_URL}/loyalty/', {
             headers: { 'Authorization': `Token ${token}` }
         })
         .then(r => r.json())

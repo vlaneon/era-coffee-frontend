@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Eralogo from '../img/ERAlogo.webp'
 import overlayImg from '../img/overlay.svg'
 import { Helmet } from 'react-helmet-async';
+import { API_BASE_URL } from '../config';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -35,12 +36,12 @@ const Register = () => {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/register/', {
+            const response = await fetch(`${API_BASE_URL}/register/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             })
-            const data = await response.json()
+                        const data = await response.json()
             if (response.ok) {
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('userName', data.user.first_name || data.user.username)

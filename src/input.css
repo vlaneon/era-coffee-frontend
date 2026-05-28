@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Подключаем шрифты */
+@font-face {
+  font-family: 'KyivSans';
+  src: url('../src/fonts/KyivTypeSans-VarGX.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BonaNova';
+  src: url('../src/fonts/BonaNova-Regular-1.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+    font-family: 'Lexend';
+    src: url(../src/fonts/Lexend[wght].ttf);
+    font-display: swap;
+}
+
+/* Базовые стили */
+* {
+  @apply box-border m-0 p-0;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  font-family: 'BonaNova', serif;
+  @apply antialiased;
+  overflow-y: auto;
+  height: auto;
+}

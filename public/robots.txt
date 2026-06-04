@@ -7,5 +7,7 @@ Disallow: /register
 Disallow: /cart
 Disallow: /admin
 Disallow: /api/
-Host: https://era-coffee.ru
-Sitemap: https://era-coffee.ru/sitemap.xml
+Disallow: /menu
+Disallow: /forgot-password
+Host: https://era-coffee-frontend.vercel.app/
+Sitemap: https://era-coffee-frontend.vercel.app/sitemap.xml

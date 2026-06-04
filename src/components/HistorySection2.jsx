@@ -99,14 +99,15 @@ const HistorySection2 = () => {
                 
                 <div className="flex flex-col items-center">
                     {/* Чашка с анимацией */}
-                    <motion.div 
-                        className="relative mb-8 lg:mb-8"
-                        animate={{ rotate: rotation }}
-                        transition={{ duration: 0.7, ease: "easeOut" }}
-                    >
-                        <img src={cup} loading="lazy" alt="Coffee Cup" 
-                            className="w-72 lg:w-96 h-74 lg:h-84 object-contain cursor-pointer drop-shadow-2xl" />
-                        <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative mb-8 lg:mb-8 flex justify-center">
+                        <motion.div
+                            animate={{ rotate: rotation }}
+                            transition={{ duration: 0.7, ease: "easeOut" }}
+                        >
+                            <img src={cup} loading="lazy" alt="Coffee Cup" 
+                                className="w-72 lg:w-96 h-74 lg:h-84 object-contain cursor-pointer drop-shadow-2xl" />
+                        </motion.div>
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <AnimatePresence mode="wait">
                                 <motion.span 
                                     key={coffee.name}
@@ -114,12 +115,13 @@ const HistorySection2 = () => {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.5 }}
                                     transition={{ duration: 0.3 }}
-                                    className="text-[#E7D7C1] text-3xl lg:text-xl font-bold drop-shadow-lg text-center px-4">
+                                    className="text-[#E7D7C1] text-3xl lg:text-=4xl font-bold drop-shadow-lg text-center px-4"
+                                >
                                     {coffee.name}
                                 </motion.span>
                             </AnimatePresence>
                         </div>
-                    </motion.div>
+                    </div>
                     
                     <AnimatePresence mode="wait">
                         <motion.p 

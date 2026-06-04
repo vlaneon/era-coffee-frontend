@@ -52,7 +52,7 @@ const Footer = () => {
                         <div className="text-white text-4xl space-y-4">
                             <p>ERACOFFEESHOPSAY@GMAIL.COM</p>
                             <p>ERACOOP@GMAIL.COM</p>
-                            <p className="font-bold text-4xl">+7 999 888 67 67</p>
+                            <p className="font-bold text-4xl">+7 999 888 46 35</p>
                         </div>
                         
                         <div className="flex gap-8">
@@ -61,7 +61,7 @@ const Footer = () => {
                         </div>
                         
                         <div className="text-white text-5xl flex gap-6">
-                            <p>2026 ИП ЯКОВАЕВА В.Е.</p>
+                            <p>2026 ИП COFFEEERA.</p>
                             <p>ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
                         </div>
                     </div>
@@ -71,22 +71,19 @@ const Footer = () => {
                             <div className="flex flex-col justify-between gap-4">
                                 {/* Блок с логотипом и основными кнопками */}
                                 <div className="flex flex-col gap-4">
-                                    <div className="flex items-center gap-12">
+                                    <div className="flex items-start gap-12">
                                         <img src={Eralogo} loading="lazy" alt="ERA" className="h-24 w-auto" />
-                                        <div className="flex gap-10">
+                                        <div className="flex flex-col gap-10">
                                             <button onClick={() => CustomNavigation('/')} className="text-white text-2xl hover:text-[#dcd7d5] transition">ГЛАВНАЯ</button>
                                             <button onClick={() => CustomNavigation('/history')} className="text-white text-2xl hover:text-[#dcd7d5] transition">ИСТОРИЯ</button>
                                             <button onClick={() => CustomNavigation('/menu')} className="text-white text-2xl hover:text-[#dcd7d5] transition">МЕНЮ</button>
+                                            <button onClick={() => navigate('/team')} className="text-white text-2xl hover:text-[#dcd7d5] transition">КОМАНДА</button>
                                         </div>
-                                    </div>
-                                    {/* Кнопка КОМАНДА отдельной строкой, с отступом слева, чтобы выровнять под кнопками */}
-                                    <div className="flex justify-start pl-52">
-                                        <button onClick={() => navigate('/team')} className="text-white text-2xl hover:text-[#dcd7d5] transition">КОМАНДА</button>
                                     </div>
                                 </div>
                                 {/* Копирайт */}
                                 <div className="text-white text-xl flex gap-5">
-                                    <p>2026 ИП ЯКОВАЕВА В.Е.</p>
+                                    <p>2026 ИП COFFEEERA.</p>
                                     <p>ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
                                 </div>
                             </div>
@@ -106,14 +103,14 @@ const Footer = () => {
                                 </div>
 
                                 <div className="flex items-start gap-3 ml-auto w-[60%]">
-                                    <div className="flex flex-col gap-2 flex-shrink-0">
+                                    <div className="flex flex-col gap-10 flex-shrink-0">
                                         <a href="https://vk.com" target="_blank" rel="noopener noreferrer"><img src={vk} loading="lazy" alt="VK" className="h-8 w-8" /></a>
                                         <a href="https://max.ru" target="_blank" rel="noopener noreferrer"><img src={maxLogo} loading="lazy" alt="Max" className="h-8 w-8" /></a>
                                     </div>
                                     <div className="text-left text-2xl space-y-1">
                                         <p className="text-white">ERACOFFEESHOPSAY@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
-                                        <p className="text-white">ERACOOP@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
-                                        <p className="text-white font-bold">+7 999 888 67 67</p>
+                                        <p className="text-white">ERACOOP@GMAIL.COM – ПРЕДЛОЖЕНИЯ, СОТРУДНИЧЕСТВО</p>
+                                        <p className="text-white font-bold">+7 999 888 46 35</p>
                                     </div>
                                 </div>
                             </div>

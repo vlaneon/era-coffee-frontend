@@ -441,7 +441,7 @@ const Profile = () => {
                             </motion.div>
                         )}
 
-                        {/* ---------- Корзиना ---------- */}
+                        {/* ---------- Корзина ---------- */}
                         {activeTab === 'cart' && (
                             <motion.div
                                 key="cart"

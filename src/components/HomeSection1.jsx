@@ -21,6 +21,7 @@ const HomeSection1 = () => {
     return (
         <div className="relative w-full h-screen lg:h-[120vh] font-KyivSans overflow-hidden">
             <img 
+                sizes="(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px"
                 src={SectionBg} 
                 loading="lazy"
                 alt="" 
@@ -50,9 +51,9 @@ const HomeSection1 = () => {
                 className="absolute top-0 left-0 w-full h-auto lg:h-auto z-10 sm:h-96"
             />
 
-            <div className="relative z-20 flex justify-center sm:justify-end items-end h-full px-4 sm:pr-[4em] lg:pr-[8em] pb-8 sm:pb-[20em] lg:pb-[10em] pt-20 sm:pt-[20em] lg:pt-[20em]">
+            <div className="relative z-20 flex justify-center sm:justify-end items-end h-full px-4 sm:pr-[4em] lg:pr-[8em] pb-8 sm:pb-[20em] lg:pb-[5%] pt-20 sm:pt-[20em]">
                 <div className="text-center sm:text-right max-w-xl lg:max-w-xl sm:max-w-3xl">
-                    <h1 className="text-white text-5xl sm:text-7xl lg:text-6xl font-bold mb-6 sm:mb-4 lg:mb-6 leading-tight">
+                    <h1 className="text-white text-3xl sm:text-7xl lg:text-6xl font-bold mb-6 sm:mb-4 lg:mb-6 leading-tight">
                         Свежеобжаренные кофейные зерна
                     </h1>
                     

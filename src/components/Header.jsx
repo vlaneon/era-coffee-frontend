@@ -139,7 +139,7 @@ const Header = () => {
                                                     <div>
                                                         <p className="text-gray-500 text-xs lg:text-xl select-all">ERACOFFEESHOPSAY@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
                                                         <p className="text-gray-500 text-xs lg:text-xl select-all">ERACOOP@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
-                                                        <p className="text-[#735751] font-bold text-xs lg:text-xl mt-1 lg:mt-2 select-all">+7 999 888 67 67</p>
+                                                        <p className="text-[#735751] font-bold text-xs lg:text-xl mt-1 lg:mt-2 select-all">+7 999 888 46 35</p>
                                                     </div>
                                                     <div className="flex items-center gap-3">
                                                         <a href="https://vk.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition">
@@ -246,7 +246,7 @@ const Header = () => {
                                     <div className="text-gray-300 text-2xl sm:text-3xl space-y-2 mt-6">
                                         <p className="select-all">ERACOFFEESHOPSAY@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
                                         <p className="select-all">ERACOOP@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
-                                        <p className="font-bold text-white text-3xl sm:text-4xl mt-3 select-all">+7 999 888 67 67</p>
+                                        <p className="font-bold text-white text-3xl sm:text-4xl mt-3 select-all">+7 999 888 46 35</p>
                                     </div>
                                     <div className="flex gap-4 mt-4">
                                         <a href="https://vk.com" target="_blank" rel="noopener noreferrer">

@@ -12,6 +12,9 @@ const NotFound = lazy(() => import('./components/NotFound'));
 const HistoryDrinks = lazy(() => import('./components/HistoryDrinks'));
 const ForgotPassword = lazy(() => import('./components/ForgotPassword'));
 const StaffPage = lazy(() => import('./components/StaffPage'));
+const CookieConsent = lazy(() => import('./components/CookieConsent'));
+const PrivacyPolicy  = lazy(() => import('./components/PrivacyPolicy'));
+
 
 const Loading = () => (
     <div className="min-h-screen flex items-center justify-center bg-[#f5f0ee]">
@@ -35,6 +38,8 @@ function App() {
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/team" element={<StaffPage />} />
                     <Route path="*" element={<NotFound />} />
+                    <Route path="/privacy" element={<CookieConsent />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

@@ -38,9 +38,9 @@ function App() {
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/team" element={<StaffPage />} />
                     <Route path="*" element={<NotFound />} />
-                    <Route path="/privacy" element={<CookieConsent />} />
                     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 </Routes>
+                <CookieConsent />
             </Suspense>
         </BrowserRouter>
     );

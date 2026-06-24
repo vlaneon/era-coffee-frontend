@@ -138,7 +138,7 @@ const Header = () => {
                                                 <div className="mt-3 lg:mt-4 pt-3 lg:pt-4 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                                                     <div>
                                                         <p className="text-gray-500 text-xs lg:text-xl select-all">ERACOFFEESHOPSAY@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
-                                                        <p className="text-gray-500 text-xs lg:text-xl select-all">ERACOOP@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
+                                                        <p className="text-gray-500 text-xs lg:text-xl select-all">ERACOOP@GMAIL.COM – ПРЕДЛОЖЕНИЯ, СОТРУДНИЧЕСТВО</p>
                                                         <p className="text-[#735751] font-bold text-xs lg:text-xl mt-1 lg:mt-2 select-all">+7 999 888 46 35</p>
                                                     </div>
                                                     <div className="flex items-center gap-3">
@@ -245,7 +245,7 @@ const Header = () => {
                                     ))}
                                     <div className="text-gray-300 text-2xl sm:text-3xl space-y-2 mt-6">
                                         <p className="select-all">ERACOFFEESHOPSAY@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
-                                        <p className="select-all">ERACOOP@GMAIL.COM – ВАКАНСИИ, ОБЩИЕ ВОПРОСЫ</p>
+                                        <p className="select-all">ERACOOP@GMAIL.COM – ПРЕДЛОЖЕНИЯ, СОТРУДНИЧЕСТВО</p>
                                         <p className="font-bold text-white text-3xl sm:text-4xl mt-3 select-all">+7 999 888 46 35</p>
                                     </div>
                                     <div className="flex gap-4 mt-4">

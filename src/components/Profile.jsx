@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Header from './Header'
+import Footer from './Footer'
 import LoyaltyCard from './LoyaltyCard'
 import overlayImg from '../img/overlay.svg'
 import { Helmet } from 'react-helmet-async'
@@ -712,6 +713,7 @@ const Profile = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
+                <Footer></Footer>
             </div>
         </div>
     )

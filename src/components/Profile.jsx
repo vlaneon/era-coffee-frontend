@@ -334,7 +334,7 @@ const Profile = () => {
             <div className="relative z-10 p-4 lg:p-4">
                 <Header />
 
-                <div className='max-w-4xl mx-auto mt-40 lg:mt-28'>
+                <div className='max-w-4xl mx-auto mt-40 lg:mt-28 pb-16 lg:pb-20'>
                     <h1 className="text-white text-6xl lg:text-4xl font-bold mb-6 lg:mb-8 drop-shadow-lg text-center lg:text-left">
                         ЛИЧНЫЙ КАБИНЕТ
                     </h1>
